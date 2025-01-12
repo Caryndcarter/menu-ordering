@@ -28,7 +28,9 @@ def place_order(menu):
     print("Welcome to the Generic Take Out Restaurant.")
 
     # TODO: Create a continuous while loop so customers can order multiple items
-    while True: 
+    ordering = True 
+
+    while ordering:
 
         # TODO: Ask the customer what they want to order
         print ("What would you like to order?")
@@ -64,36 +66,43 @@ def place_order(menu):
 
         # TODO: Ask the customer if they would like to order anything else
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
-        
-        continue_ordering = input("\nWould you like keep ordering? ('N' to quit, 'Y' to order more): ")
+
+        continuing = True
+
+        while continuing:
+
+            continue_ordering = input("\nWould you like keep ordering? ('N' to quit, 'Y' to order more): ")
 
         # TODO: Write a conditional statement that checks the user's input
         # TODO: The conditional statement should check for 'n' or 'N'
-        if continue_ordering.lower() == 'n':
 
-            # TODO: Write a print statement that thanks the customer for their order
-            print("Thank you for your order!")
+            if continue_ordering.lower() == 'n':
 
-            # TODO: Use list comprehension to create a list called prices_list,
-            # TODO: which contains the total prices for each item in the order list:
-            # TODO: The total price for each item should multiply the price by quantity
-            prices_list = [item["Price"] * item["Quantity"] for item in order]
+                # TODO: Write a print statement that thanks the customer for their order
+                print("Thank you for your order!")
 
-            # TODO: Create an order_total from the prices list using sum()
-            # TODO: Round the prices to 2 decimal places.
-            order_total = round(sum(prices_list), 2)
+                # TODO: Use list comprehension to create a list called prices_list,
+                # TODO: which contains the total prices for each item in the order list:
+                # TODO: The total price for each item should multiply the price by quantity
+                prices_list = [item["Price"] * item["Quantity"] for item in order]
 
-            # TODO: Exit the ordering loop
-            # TODO: Either use a break statement or set the condition to False
-            break
+                # TODO: Create an order_total from the prices list using sum()
+                # TODO: Round the prices to 2 decimal places.
+                order_total = round(sum(prices_list), 2)
+
+                # TODO: Exit the ordering loop
+                # TODO: Either use a break statement or set the condition to False
+                continuing = False
+                ordering = False
         
-        elif continue_ordering.lower() == 'y': 
-            continue
-        
-        else:
-            print("You did not enter a valid choice. Please enter 'Y' to continue ordering or 'N' to quit.")
-            break
+            elif continue_ordering.lower() == 'y': 
+                continuing = False 
+                ordering = True
             
+            else:
+                print("You did not enter a valid choice. Please enter 'Y' to continue ordering or 'N' to quit.")
+                continuing = True
+                ordering = False 
 
     # TODO: Return the order list and the order total
     return order, order_total
