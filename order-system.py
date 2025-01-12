@@ -150,7 +150,7 @@ def update_order(order, menu_selection, menu_items):
     # TODO: Print the menu selection and 
     # TODO: Tell the customer they didn't select a menu option
     else:
-        print(f"'{menu_option}' was not a menu option")
+        print(f"'{menu_selection}' is not a menu option")
 
     # TODO: Return the updated order
     return order
