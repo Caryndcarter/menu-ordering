@@ -64,30 +64,35 @@ def place_order(menu):
 
         # TODO: Ask the customer if they would like to order anything else
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
-        continue_ordering = input("\nWould you like keep ordering? ('N' to quit): ")
+        
+        continue_ordering = input("\nWould you like keep ordering? ('N' to quit, 'Y' to order more): ")
 
         # TODO: Write a conditional statement that checks the user's input
         # TODO: The conditional statement should check for 'n' or 'N'
+        if continue_ordering.lower() == 'n':
 
             # TODO: Write a print statement that thanks the customer for their order
-        if continue_ordering.lower() == 'n':
             print("Thank you for your order!")
-            break
 
             # TODO: Use list comprehension to create a list called prices_list,
             # TODO: which contains the total prices for each item in the order list:
             # TODO: The total price for each item should multiply the price by quantity
-        prices_list = [item["Price"] * item["Quantity"] for item in order]
+            prices_list = [item["Price"] * item["Quantity"] for item in order]
 
             # TODO: Create an order_total from the prices list using sum()
             # TODO: Round the prices to 2 decimal places.
-        order_total = round(sum(prices_list), 2)
+            order_total = round(sum(prices_list), 2)
 
             # TODO: Exit the ordering loop
             # TODO: Either use a break statement or set the condition to False
-        break
-
-
+            break
+        
+        elif continue_ordering.lower() == 'y': 
+            break
+        
+        else:
+            print("You did not enter a valid choice. Please enter 'Y' to continue ordering or 'N' to quit.")
+            
 
     # TODO: Return the order list and the order total
     return order, order_total
@@ -122,13 +127,15 @@ def update_order(order, menu_selection, menu_items):
 
             # TODO: Ask the customer for the quantity of the menu item
             # TODO: Use the item name variable in the question
-            quantity = input(f"What quantity of '{item_name}' would you like? ")
+            quantity = input(f"What quantity of '{item_name}' would you like? \nThis will default to 1 if number is not entered. \nEnter number: ")
 
             # TODO: Check if the quantity is a number, default to 1 if not
             if not quantity.isdigit():
                 quantity = 1
+                print(f"Quantity = {quantity}")
             else:
                 quantity = int(quantity)
+                print(f"Quantity = {quantity}")
 
             # TODO: Add a dictionary to the order list 
             # TODO: The dictionary should include the item name, price, and quantity
