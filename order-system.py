@@ -28,7 +28,7 @@ def place_order(menu):
     print("Welcome to the Generic Take Out Restaurant.")
 
     # TODO: Create a continuous while loop so customers can order multiple items
-    while True; 
+    while True: 
 
         # TODO: Ask the customer what they want to order
         print ("What would you like to order?")
@@ -70,7 +70,7 @@ def place_order(menu):
         # TODO: The conditional statement should check for 'n' or 'N'
 
             # TODO: Write a print statement that thanks the customer for their order
-            if continue_ordering.lower() == 'n':
+        if continue_ordering.lower() == 'n':
             print("Thank you for your order!")
             break
 
