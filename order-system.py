@@ -88,10 +88,11 @@ def place_order(menu):
             break
         
         elif continue_ordering.lower() == 'y': 
-            break
+            continue
         
         else:
             print("You did not enter a valid choice. Please enter 'Y' to continue ordering or 'N' to quit.")
+            break
             
 
     # TODO: Return the order list and the order total
