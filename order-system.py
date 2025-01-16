@@ -35,7 +35,7 @@ def place_order(menu):
         i = 1
 
         # TODO: Ask the customer what they want to order
-        print ("What would you like to order?")
+        print ("What would you like to order? ")
 
         # Print the menu header
         print_menu_heading()
